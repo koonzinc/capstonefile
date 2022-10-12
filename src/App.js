@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Signup from './components/Signup/Signup';
+import Signup from './pages/Signup/Signup';
+import IndividualStocks from './pages/IndividualStocks/IndividualStocks';
 
 function App() {
   return (
     <div>
-      <Signup />
+      {/*<Signup />*/}
+      <IndividualStocks />
     </div>
   );
 }
