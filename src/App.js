@@ -5,7 +5,7 @@ import IndividualStocks from './pages/IndividualStocks/IndividualStocks';
 function App() {
   return (
     <div>
-      {/*<Signup />*/}
+      <Signup />
       <IndividualStocks />
     </div>
   );
