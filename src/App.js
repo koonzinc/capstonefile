@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import './App.css';
 import Signup from './pages/Signup/Signup';
 import IndividualStocks from './pages/IndividualStocks/IndividualStocks';
 
