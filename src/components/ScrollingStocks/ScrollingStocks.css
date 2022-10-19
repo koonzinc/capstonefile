@@ -1,0 +1,55 @@
+.scroll__parent {
+    position: relative;
+    width: 100vw;
+    height: 5rem;
+    overflow-x: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .scroll__element {
+    margin-top: 20px;
+    width: 200px;
+    height: 3rem;
+    position: absolute;
+    display: flex;
+    left: 0%;
+    top: 0%;
+    background-color: #242631;
+    border-radius: 9999px;
+    padding-left: 2px;
+  }
+  
+  @keyframes primary {
+    from {
+      left: 0%;
+    }
+    to {
+      left: -100%;
+    }
+  }
+  
+  .primary {
+    animation: primary 7s linear infinite;
+  }
+  
+  .secondary {
+    animation: secondary 7s linear infinite;
+  }
+  
+  @keyframes primary {
+    from {
+      left: 0%;
+    }
+    to {
+      left: -100%;
+    }
+  }
+  
+  @keyframes secondary {
+    from {
+      left: 100%;
+    }
+    to {
+      left: 0%;
+    }
+  }
