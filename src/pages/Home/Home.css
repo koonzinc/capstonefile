@@ -19,6 +19,7 @@
     margin: auto;
     background-color: #313342;
     border-radius: 8px;
+    box-shadow: var(--color-default-shadow);
 }
 .data-and-post-container {
     width: 96.6%;
@@ -48,11 +49,13 @@
     margin-bottom: 16px;
     width: 90%;
     border-radius: 8px;
+    box-shadow: var(--color-default-shadow);
 }
 .posts-header {
     width: 100%;
     background-color: #313342;
     border-radius: 8px;
+    box-shadow: var(--color-default-shadow);
 }
 .posts-container {
     height: auto;
