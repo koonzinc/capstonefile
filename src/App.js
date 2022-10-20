@@ -4,6 +4,7 @@ import IndividualStocks from './pages/IndividualStocks/IndividualStocks';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Home from './pages/Home/Home';
 
+
 function App() {
   return (
     <Routes>
