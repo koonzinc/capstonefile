@@ -8,7 +8,7 @@ function NavBar() {
   return (
     <div className="header">
       
-        <h1 className="header__logo">(FMA)</h1>
+        <h1 className="header__logo">FMA</h1>
       
 
       <div className="header__search">
