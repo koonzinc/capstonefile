@@ -1,17 +1,19 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import Signup from './pages/Signup/Signup';
 import IndividualStocks from './pages/IndividualStocks/IndividualStocks';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Home from './pages/Home/Home';
+import Api from './API/Api';
+
 
 function App() {
   return (
-    <div>
-      <Signup />
-      <IndividualStocks />
-      <ProfilePage />
-      <Home />
-    </div>
+    <Routes>
+      <Route path="/" element={<Api />}/>
+      <Route path="/individual-stocks" element={<IndividualStocks />}/>
+      <Route path="/profile-page" element={<ProfilePage />}/>
+      <Route path="/signup" element={<Signup />}/>
+    </Routes>
   );
 }
 
