@@ -9,7 +9,7 @@ import Api from './API/Api';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Api />}/>
+      <Route path="/" element={<Home />}/>
       <Route path="/individual-stocks" element={<IndividualStocks />}/>
       <Route path="/profile-page" element={<ProfilePage />}/>
       <Route path="/signup" element={<Signup />}/>
