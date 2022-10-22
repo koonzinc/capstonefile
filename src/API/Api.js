@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Api = () => {
+const Api = ({aapl}) => {
 
   const [price, setPrice] = useState("");
   const [close, setClose] = useState([]);
 
-  const URL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=TSLA&apikey=XCI1NEPICS3X7H9B";
+  const URL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${aapl}&apikey=XCI1NEPICS3X7H9B`;
 
   useEffect(() => {
 
