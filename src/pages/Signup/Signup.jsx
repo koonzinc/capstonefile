@@ -1,6 +1,7 @@
 import React from "react";
 import "./Signup.css";
 import NavBar from "../../components/NavBar/NavBar";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
@@ -23,7 +24,10 @@ const Signup = () => {
               <p>Sign up with Email.</p>
             </div>
             <p className="p1">
-              Already have an account? <a>Log in</a>.
+              Already have an account?
+              <Link to="/login" replace>
+                Log in.
+              </Link>
             </p>
             <p className="p2">
               By signing up, you agree to our
