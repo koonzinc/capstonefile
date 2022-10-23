@@ -8,7 +8,6 @@ const ProfilePage = () => {
   return (
     <>
       <NavBar />
-      <ScrollingStocks />
       <div className="wrapper3">
         <div className="profileContainer">
           <div className="topProfileContainer">
