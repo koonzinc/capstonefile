@@ -1,0 +1,42 @@
+
+
+.p3 {
+    font-size: 14px;
+    position: relative;
+    width: 380px;
+    line-height: 1.5em;
+    color: #B6BCCB;
+    margin-bottom: 2rem;
+}
+#or {
+    color: white;
+}
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+.login-inputs {
+    background-color: #424354;
+    border: none;
+    color: #707584;
+    border-radius: 14px;
+    padding: 20px 20px;
+    margin-bottom: 1rem;
+    font-size: 14px;
+}
+.login-inputs:focus {
+    color: white;
+}
+.login-button {
+    background-color: #535967;
+    border: none;
+    padding: 14px 0px;
+    border-radius: 20px;
+    width: 90%;
+    margin: 0.5rem auto;
+}
