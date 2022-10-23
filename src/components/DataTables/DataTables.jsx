@@ -1,10 +1,13 @@
-import React from 'react';
-import './DataTables.css';
+import React from "react";
+import "./DataTables.css";
+import Pill from "../Pill/Pill";
 
 const DataTables = () => {
   return (
-    <div className="data-table-container"></div>
-  )
-}
+    <div className="data-table-container">
+      <Pill />
+    </div>
+  );
+};
 
-export default DataTables
+export default DataTables;
