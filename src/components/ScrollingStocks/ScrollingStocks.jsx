@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import "./ScrollingStocks.css";
-import axios from 'axios';
+// import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 const ScrollingStocks = ({aapl}) => {

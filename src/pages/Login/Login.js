@@ -1,6 +1,7 @@
-import React from 'react'
-import NavBar from '../../components/NavBar/NavBar'
-import './Login.css';
+import React from "react";
+import NavBar from "../../components/NavBar/NavBar";
+import "./Login.css";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -25,21 +26,34 @@ export default function Login() {
               <p>Continue with Github.</p>
             </div>
             <div>
-              <h2 id='or'>or</h2>
+              <h2 id="or">or</h2>
             </div>
-            <div className='loginForm'>
-              <form className='login-form' action="">
-                <input className='login-inputs' type="email" placeholder='Email'/>
-                <input className='login-inputs' type="password" placeholder='Password' />
-                <button className='login-button' type='submit'>Log in</button>
+            <div className="loginForm">
+              <form className="login-form" action="">
+                <input
+                  className="login-inputs"
+                  type="email"
+                  placeholder="Email"
+                />
+                <input
+                  className="login-inputs"
+                  type="password"
+                  placeholder="Password"
+                />
+                <button className="login-button" type="submit">
+                  Log in
+                </button>
               </form>
-              <p style={{color: '#B6BDCB'}}>
-                Don't have an account? <a href="#">Sign up</a>
+              <p style={{ color: "#B6BDCB" }}>
+                Don't have an account?
+                <Link to="/signup" replace>
+                  Sign up.
+                </Link>
               </p>
             </div>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }

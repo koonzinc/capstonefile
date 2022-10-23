@@ -5,4 +5,7 @@
     width: 90%;
     border-radius: 8px;
     box-shadow: var(--color-default-shadow);
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
 }

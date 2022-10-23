@@ -1,6 +1,7 @@
 import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineBars } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
+import { FaBars } from "react-icons/fa";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 
@@ -19,9 +20,17 @@ function NavBar() {
 
         <AiOutlineSearch className="header__searchIcon" />
       </div>
-      <Link to="profile-page">
-        <BsPerson className="avatar" />
-      </Link>
+
+      <div className="navbar__left">
+        <Link to="/signup" replace>
+          {" "}
+          <AiOutlineBars className="navbar__leftMenu" />
+        </Link>
+
+        <Link to="/profile-page" replace>
+          <BsPerson />
+        </Link>
+      </div>
     </div>
   );
 }
