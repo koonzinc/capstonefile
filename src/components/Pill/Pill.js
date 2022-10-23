@@ -4,7 +4,8 @@ import "./Pill.css";
 export default function Pill() {
   return (
     <div className="pill__wrapper">
-      <span className="ticker">TSLA <span className="price">217.14</span></span>
+      <span>TSLA </span>
+      <span>$217.14</span>
     </div>
   );
 }

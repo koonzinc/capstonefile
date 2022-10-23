@@ -6,6 +6,14 @@ const DataTables = () => {
   return (
     <div className="data-table-container">
       <Pill />
+      <Pill />
+      <Pill />
+      <Pill />
+      <Pill />
+      <Pill />
+      <Pill />
+      <Pill />
+      <Pill />
     </div>
   );
 };
