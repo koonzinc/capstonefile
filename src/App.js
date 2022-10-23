@@ -6,6 +6,7 @@ import Home from './pages/Home/Home';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Api from './API/Api';
+import Login from './pages/Login/Login';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home aapl={aapl} />}/>
+      <Route path="/login" element={<Login />}/>
       <Route path="/individual-stocks" element={<IndividualStocks aapl={aapl}  />}/>
       <Route path="/profile-page" element={<ProfilePage />}/>
       <Route path="/signup" element={<Signup />}/>
