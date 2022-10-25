@@ -29,7 +29,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home aapl={aapl} />}/>
       <Route path="/login" element={<Login />}/>
-      <Route path="/individual-stocks" element={<IndividualStocks aapl={aapl}  />}/>
+      <Route path="/individual-stocks/:stockId" element={<IndividualStocks aapl={aapl}  />}/>
       <Route path="/profile-page" element={<ProfilePage />}/>
       <Route path="/signup" element={<Signup />}/>
     </Routes>
