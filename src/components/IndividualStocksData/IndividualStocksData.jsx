@@ -6,6 +6,7 @@ const IndividualStocksData = ({ aapl }) => {
   const [price, setPrice] = useState("");
   const [close, setClose] = useState([]);
   const [info, setInfo] = useState({});
+  const [index, setIndex] = useState(0);
 
   const {stockId} = useParams();
 
@@ -15,7 +16,7 @@ const IndividualStocksData = ({ aapl }) => {
   useEffect(() => {
     close.length <= 0 && getPrice();
     close.length > 0 && setPrice(close[0][1]["4. close"]);
-    close.length <= 0 && getInfo();
+    close.length <= 0 && getInfo();    
   }, [close]);
 
   const getPrice = async () => {
@@ -25,6 +26,8 @@ const IndividualStocksData = ({ aapl }) => {
     thePrice && setClose(Object.entries(thePrice));
     console.log(response.data["Time Series (Daily)"])
     console.log(response)
+    setIndex((prev) => prev + 1)
+    console.log(index);
   };
 
   const getInfo = async () => {
