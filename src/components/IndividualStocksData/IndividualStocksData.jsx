@@ -9,8 +9,8 @@ const IndividualStocksData = ({ aapl }) => {
 
   const {stockId} = useParams();
 
-  const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockId}&outputsize=full&apikey=KLUR2W3FHJFZTUSR`;
-  const companyUrl = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${stockId}&apikey=KLUR2W3FHJFZTUSR`;
+  const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockId}&outputsize=full&apikey=JXG5DBIGA9O2LVMG`;
+  const companyUrl = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${stockId}&apikey=JXG5DBIGA9O2LVMG`;
 
   useEffect(() => {
     close.length <= 0 && getPrice();
@@ -26,18 +26,19 @@ const IndividualStocksData = ({ aapl }) => {
     console.log(response.data["Time Series (Daily)"])
     console.log(response)
   };
-  console.log(price);
 
   const getInfo = async () => {
     const response = await axios.get(companyUrl);
     setInfo(response.data);
 
   }
-  console.log(info);
 
-  const formatNumber = (param) => {
-    return param.toLocaleString(undefined, {minimumFractionDigits:2})
-  }
+  // const formatNumber = (param) => {
+  //   return param.toLocaleString(undefined, {minimumFractionDigits:2})
+  // }
+  console.log(info);
+  console.log(price);
+  console.log(close);
 
   return (
     <>
@@ -60,31 +61,31 @@ const IndividualStocksData = ({ aapl }) => {
               <td>Price</td>
               <td className="td-right">{price && price}</td>
               <td>Sector</td>
-              <td className="td-right">{info.Sector.toLowerCase()}</td>
+              <td className="td-right">{info && info.Sector}</td>
             </tr>
             <tr>
               <td>Industry</td>
-              <td className="td-right">{info.Industry.toLowerCase()}</td>
+              <td className="td-right">{info && info.Industry}</td>
               <td>Market Capitalization</td>
-              <td className="td-right">{formatNumber(info.MarketCapitalization)}</td>
+              <td className="td-right">{/*info && formatNumber(info.MarketCapitalization)*/}</td>
             </tr>
             <tr>
               <td>Dividend Yield</td>
-              <td className="td-right">{info.DividendYield}</td>
+              <td className="td-right">{info && info.DividendYield}</td>
               <td>Earnings Per Share</td>
-              <td className="td-right">{info.EPS}</td>
+              <td className="td-right">{info && info.EPS}</td>
             </tr>
             <tr>
               <td>52 Week High</td>
-              <td className="td-right">{info["52WeekHigh"]}</td>
+              <td className="td-right">{info && info["52WeekHigh"]}</td>
               <td>52 Week Low</td>
-              <td className="td-right">{info["52WeekLow"]}</td>
+              <td className="td-right">{info && info["52WeekLow"]}</td>
             </tr>
             <tr>
               <td>Profit Margin</td>
-              <td className="td-right">{info.ProfitMargin}</td>
+              <td className="td-right">{info && info.ProfitMargin}</td>
               <td>Operating Margin</td>
-              <td className="td-right">{info.OperatingMarginTTM}</td>
+              <td className="td-right">{info && info.OperatingMarginTTM}</td>
             </tr>
           </tbody>
           <tfoot>
