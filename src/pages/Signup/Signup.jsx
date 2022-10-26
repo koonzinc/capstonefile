@@ -4,35 +4,47 @@ import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-
 const Signup = () => {
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post('https://3000-areandd-capstonebackend-qbuxdevyiqo.ws-us72.gitpod.io/signup', { email: email, password: password })
+      .then(res => {
+        console.log("API response: ", res);
+      })
+      .catch(err => {
+        console.log("Error: ", err);
+      })
+
+  }
 
 
+// const [email, setEmail] = useState('');
+// const [password, setPassword] = useState('');
 
-const handleEmailChange = (e) => {
-  setEmail(e.target.value);
-  
-};
+// const handleEmailChange = (e) => {
+//   setEmail(e.target.value);
+// };
 
-const handlePasswordChange = (e) => {
-  setPassword(e.target.value);
-  
-}
+// const handlePasswordChange = (e) => {
+//   setPassword(e.target.value);
+// }
 
-const handleSubmit = (e) => {
-  e.prevent.Default();
+// const handleSubmit = (e) => {
+//   e.prevent.Default();
 
-  const url = 'https://3000-areandd-capstonebackend-qbuxdevyiqo.ws-us72.gitpod.io/signup';
+//   const url = 'https://3000-areandd-capstonebackend-qbuxdevyiqo.ws-us72.gitpod.io/signup';
 
-  axios.post(url, {
-    'email': email,
-    'password': password
-  })
-    .then(response => response.data)
-    .catch(error => console.log('Error'))
-}
+//   axios.post(url, {
+//     email: email,
+//     password: password
+//   })
+//     .then(response => response.data)
+//     .catch(error => console.log('Error'))
+// }
 
 
   return (
@@ -50,13 +62,13 @@ const handleSubmit = (e) => {
                   className="login-inputs"
                   type="email"
                   placeholder="Email"
-                  onChange={handleEmailChange}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                   className="login-inputs"
                   type="password"
                   placeholder="Password"
-                  onChange={handlePasswordChange}
+                  onChange={(e) => setPassword(e.target.value)}
 
                 />
                 <button className="login-button" type="submit" >
