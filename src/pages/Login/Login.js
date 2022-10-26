@@ -19,15 +19,6 @@ export default function Login() {
               <a>Terms of Service</a>, <a>Copyright Policy</a> and{" "}
               <a>Privacy Policy</a>
             </p>
-            <div className="login">
-              <p>Continue with Google.</p>
-            </div>
-            <div className="login">
-              <p>Continue with Github.</p>
-            </div>
-            <div>
-              <h2 id="or">or</h2>
-            </div>
             <div className="loginForm">
               <form className="login-form" action="">
                 <input

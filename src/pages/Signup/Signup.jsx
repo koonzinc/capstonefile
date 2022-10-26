@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Signup.css";
 import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 const Signup = () => {
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+
+
+
+const handleEmailChange = (e) => {
+  setEmail(e.target.value);
+  
+};
+
+const handlePasswordChange = (e) => {
+  setPassword(e.target.value);
+  
+}
+
+const handleSubmit = (e) => {
+  e.prevent.Default();
+
+  const url = 'https://3000-areandd-capstonebackend-qbuxdevyiqo.ws-us72.gitpod.io/signup';
+
+  axios.post(url, {
+    'email': email,
+    'password': password
+  })
+    .then(response => response.data)
+    .catch(error => console.log('Error'))
+}
+
+
   return (
     <>
       <NavBar />
@@ -14,15 +45,24 @@ const Signup = () => {
               <span className="logo">CS</span> Commonstock
             </h1>
             <h2 className="statement">Create an account to continue.</h2>
-            <div className="login">
-              <p>Continue with Google.</p>
-            </div>
-            <div className="login">
-              <p>Continue with Github.</p>
-            </div>
-            <div className="login">
-              <p>Sign up with Email.</p>
-            </div>
+            <form className="login-form"  onSubmit={handleSubmit}>
+                <input
+                  className="login-inputs"
+                  type="email"
+                  placeholder="Email"
+                  onChange={handleEmailChange}
+                />
+                <input
+                  className="login-inputs"
+                  type="password"
+                  placeholder="Password"
+                  onChange={handlePasswordChange}
+
+                />
+                <button className="login-button" type="submit" >
+                  Log in
+                </button>
+              </form>
             <p className="p1">
               Already have an account?
               <Link to="/login" replace>
