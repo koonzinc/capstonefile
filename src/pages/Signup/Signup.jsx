@@ -11,7 +11,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('https://3000-areandd-capstonebackend-qbuxdevyiqo.ws-us72.gitpod.io/signup', { email: email, password: password })
+    axios.post('https://3000-areandd-capstonebackend-q0eywc5qttf.ws-us73.gitpod.io/signup', { email: email, password: password })
       .then(res => {
         console.log("API response: ", res);
       })

@@ -70,7 +70,7 @@ const IndividualStocksData = ({ aapl }) => {
               <td>Industry</td>
               <td className="td-right">{info && info.Industry}</td>
               <td>Market Capitalization</td>
-              <td className="td-right">{/*info && formatNumber(info.MarketCapitalization)*/}</td>
+              <td className="td-right">{info && info.MarketCapitalization}</td>
             </tr>
             <tr>
               <td>Dividend Yield</td>

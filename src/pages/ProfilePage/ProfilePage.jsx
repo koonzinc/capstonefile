@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Posts from "../../components/Posts/Posts";
 import "./ProfilePage.css";
 import NavBar from "../../components/NavBar/NavBar";
 import ScrollingStocks from "../../components/ScrollingStocks/ScrollingStocks";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    let token = localStorage.getItem('userToken')
+    
+    axios.get(`${process.env.REACT_APP_URL}validate-token`, {headers: {Authorization: `Bearer ${token}`}})
+    .then(res => console.log(res))
+    .catch(error => {
+      navigate('/login')
+    })
+  })
+
   return (
     <>
       <NavBar />

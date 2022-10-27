@@ -1,11 +1,17 @@
 import React from "react";
-import { AiOutlineSearch, AiOutlineBars } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineBars, AiFillCloseCircle } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 
 function NavBar() {
+
+  const handleLogout = () => {
+    localStorage.removeItem('userToken')
+  }
+  
+
   return (
     <div className="header">
       <Link to="/">
@@ -29,6 +35,10 @@ function NavBar() {
 
         <Link to="/profile-page" replace>
           <BsPerson />
+        </Link>
+        <Link to="/" onClick={handleLogout}>
+          <AiFillCloseCircle/>
+          
         </Link>
       </div>
     </div>
