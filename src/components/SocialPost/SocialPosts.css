@@ -1,11 +1,11 @@
+
+
 .modal {
-  margin-top: 20px;
-  top: 5%;
   background-color: white;
   width: 600px;
   height: 314px;
   border-radius: 25px;
-  margin: 0 auto;
+  margin: 50px auto 0;
 }
 
 .semi__container {
@@ -17,28 +17,35 @@
 
 .exit {
   margin-top: 5px;
+  margin-left: 8px;
   justify-content: left;
   position: relative;
-  left: 1.25rem;
   display: flex;
   position: row;
 }
 
 .photo__inputContainer {
+  align-items: flex-start;
+  height: 70%;
   display: flex;
+  margin: auto;
+  width: 80%;
   position: row;
-  margin: 20px 0px 20px 20px;
 }
 
 .profile__photo {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 .input {
-  margin-left: 15px;
+  margin-left: 20px;
   border: none;
   outline: none;
+  width: 100%;
+  font-size: 20px;
+  overflow: hidden;
+  resize: none;
 }
 
 .button__container {
@@ -53,7 +60,7 @@
   height: 30px;
   margin-left: auto;
   margin-right: 15px;
-  margin-top: 145px;
+  margin-bottom: 9px;
   border: none;
   border-radius: 25px;
 }

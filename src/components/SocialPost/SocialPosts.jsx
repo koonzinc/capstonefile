@@ -6,9 +6,9 @@ export default function SocialPosts() {
   return (
     <div className="modal">
       <div className="semi__container">
-      
-          <AiOutlineCloseCircle className="exit" size={30}/>
-
+      <div className="exit">
+          <AiOutlineCloseCircle  size={27}/>
+          </div>
 
         <div className="photo__inputContainer">
           <img
@@ -16,7 +16,7 @@ export default function SocialPosts() {
             src="https://picsum.photos/30/30"
             alt=""
           />
-          <input className="input" placeholder="what's happening?"></input>
+          <textarea className="input" placeholder="what's happening?" rows="7" ></textarea>
         </div>
         <div className="button__container">
           <button className="send">Send</button>

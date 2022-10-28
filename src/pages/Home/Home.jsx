@@ -16,6 +16,7 @@ const Home = ({ aapl }) => {
         <IndexContainer />
         <div className="data-and-post-container">
           <div className="data-tables">
+           
             <DataTables />
           </div>
           <div className="home-posts-container">

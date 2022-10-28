@@ -5,7 +5,6 @@ import NavBar from "../../components/NavBar/NavBar";
 import ScrollingStocks from "../../components/ScrollingStocks/ScrollingStocks";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
 const ProfilePage = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -21,6 +20,7 @@ const ProfilePage = () => {
   return (
     <>
       <NavBar />
+    
       <div className="wrapper3">
         <div className="profileContainer">
           <div className="topProfileContainer">

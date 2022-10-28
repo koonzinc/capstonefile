@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Api from './API/Api';
 import Login from './pages/Login/Login';
-import SocialPosts from './components/SocialPost/SocialPosts';
+
 
 function App() {
   const [aapl, setAapl] = useState('')
@@ -30,7 +30,7 @@ function App() {
       <Route path="/" element={<Home aapl={aapl} />}/>
       <Route path="/login" element={<Login />}/>
       <Route path="/individual-stocks/:stockId" element={<IndividualStocks aapl={aapl}  />}/>
-      <Route path="/profile-page" element={<SocialPosts />}/>
+      <Route path="/profile-page" element={<ProfilePage />}/>
       <Route path="/signup" element={<Signup />}/>
     </Routes>
   );
