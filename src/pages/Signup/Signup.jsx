@@ -5,47 +5,48 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('https://3000-areandd-capstonebackend-q0eywc5qttf.ws-us73.gitpod.io/signup', { email: email, password: password })
-      .then(res => {
+    axios
+      .post(
+        "https://3000-areandd-capstonebackend-assxchiq8kz.ws-us73.gitpod.io/signup",
+        { email: email, password: password }
+      )
+      .then((res) => {
         console.log("API response: ", res);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("Error: ", err);
-      })
+      });
+  };
 
-  }
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
 
+  // const handleEmailChange = (e) => {
+  //   setEmail(e.target.value);
+  // };
 
-// const [email, setEmail] = useState('');
-// const [password, setPassword] = useState('');
+  // const handlePasswordChange = (e) => {
+  //   setPassword(e.target.value);
+  // }
 
-// const handleEmailChange = (e) => {
-//   setEmail(e.target.value);
-// };
+  // const handleSubmit = (e) => {
+  //   e.prevent.Default();
 
-// const handlePasswordChange = (e) => {
-//   setPassword(e.target.value);
-// }
+  //   const url = 'https://3000-areandd-capstonebackend-qbuxdevyiqo.ws-us72.gitpod.io/signup';
 
-// const handleSubmit = (e) => {
-//   e.prevent.Default();
-
-//   const url = 'https://3000-areandd-capstonebackend-qbuxdevyiqo.ws-us72.gitpod.io/signup';
-
-//   axios.post(url, {
-//     email: email,
-//     password: password
-//   })
-//     .then(response => response.data)
-//     .catch(error => console.log('Error'))
-// }
-
+  //   axios.post(url, {
+  //     email: email,
+  //     password: password
+  //   })
+  //     .then(response => response.data)
+  //     .catch(error => console.log('Error'))
+  // }
 
   return (
     <>
@@ -57,24 +58,23 @@ const Signup = () => {
               <span className="logo">CS</span> Commonstock
             </h1>
             <h2 className="statement">Create an account to continue.</h2>
-            <form className="login-form"  onSubmit={handleSubmit}>
-                <input
-                  className="login-inputs"
-                  type="email"
-                  placeholder="Email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                  className="login-inputs"
-                  type="password"
-                  placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
-
-                />
-                <button className="login-button" type="submit" >
-                  Log in
-                </button>
-              </form>
+            <form className="login-form" onSubmit={handleSubmit}>
+              <input
+                className="login-inputs"
+                type="email"
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                className="login-inputs"
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button className="login-button" type="submit">
+                Log in
+              </button>
+            </form>
             <p className="p1">
               Already have an account?
               <Link to="/login" replace>

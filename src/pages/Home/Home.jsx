@@ -5,6 +5,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import Posts from "../../components/Posts/Posts";
 import ScrollingStocks from "../../components/ScrollingStocks/ScrollingStocks";
 import "./Home.css";
+import SocialPosts from "../../components/SocialPost/SocialPosts";
 
 const Home = ({ aapl }) => {
   return (

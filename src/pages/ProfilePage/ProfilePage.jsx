@@ -11,7 +11,7 @@ const ProfilePage = () => {
   useEffect(() => {
     let token = localStorage.getItem('userToken')
     
-    axios.get(`${process.env.REACT_APP_URL}validate-token`, {headers: {Authorization: `Bearer ${token}`}})
+    axios.get("https://3000-areandd-capstonebackend-assxchiq8kz.ws-us73.gitpod.io/validate-token" , {headers: {Authorization: `Bearer ${token}`}})
     .then(res => console.log(res))
     .catch(error => {
       navigate('/login')

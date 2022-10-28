@@ -5,26 +5,30 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Login() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('https://3000-areandd-capstonebackend-q0eywc5qttf.ws-us73.gitpod.io/login', { email: email, password: password })
-      .then(res => {
+    axios
+      .post(
+        "https://3000-areandd-capstonebackend-assxchiq8kz.ws-us73.gitpod.io/login",
+        {
+          email: email,
+          password: password,
+        }
+      )
+      .then((res) => {
         console.log("API response: ", res);
-        localStorage.setItem('userToken', res.data)
-        navigate('/profile-page')
+        localStorage.setItem("userToken", res.data);
+        navigate("/profile-page");
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("Error: ", err);
-      })
-
-  }
-
-  
+      });
+  };
 
   return (
     <>

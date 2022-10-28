@@ -1,0 +1,59 @@
+.modal {
+  margin-top: 20px;
+  top: 5%;
+  background-color: white;
+  width: 600px;
+  height: 314px;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+.semi__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.exit {
+  margin-top: 5px;
+  justify-content: left;
+  position: relative;
+  left: 1.25rem;
+  display: flex;
+  position: row;
+}
+
+.photo__inputContainer {
+  display: flex;
+  position: row;
+  margin: 20px 0px 20px 20px;
+}
+
+.profile__photo {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+.input {
+  margin-left: 15px;
+  border: none;
+  outline: none;
+}
+
+.button__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.send {
+  background-color: #313342;
+  color: white;
+  width: 70px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: 15px;
+  margin-top: 145px;
+  border: none;
+  border-radius: 25px;
+}
