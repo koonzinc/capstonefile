@@ -15,15 +15,12 @@ const Home = ({ aapl }) => {
     setModal(true);
   }
 
-  const modalPop = () => ({
-    
-  })
-
   return (
     <div>
       <NavBar />
-      <ScrollingStocks aapl={aapl} />
+      {modal ? <SocialPosts/> : null}
       <div className="home-page-container">
+        <ScrollingStocks aapl={aapl} />
         <IndexContainer />
         <div className="data-and-post-container">
           <div className="data-tables">

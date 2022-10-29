@@ -1,11 +1,24 @@
-
+.modal__background {
+  position: absolute;
+  position: fixed;
+  height:100vh;
+  width: 100vw;
+  background-color: #242e3697;
+  
+  z-index: 49;
+}
 
 .modal {
   background-color: white;
   width: 600px;
   height: 314px;
   border-radius: 25px;
-  margin: 50px auto 0;
+  margin: 100px auto 0 auto;
+  position: absolute;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 50;
 }
 
 .semi__container {
