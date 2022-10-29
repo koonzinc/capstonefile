@@ -6,8 +6,19 @@ import Posts from "../../components/Posts/Posts";
 import ScrollingStocks from "../../components/ScrollingStocks/ScrollingStocks";
 import "./Home.css";
 import SocialPosts from "../../components/SocialPost/SocialPosts";
+import { BsPencilSquare } from "react-icons/bs";
 
 const Home = ({ aapl }) => {
+  const [modal, setModal] = useState(false);
+
+  const handleModal = () => {
+    setModal(true);
+  }
+
+  const modalPop = () => ({
+    
+  })
+
   return (
     <div>
       <NavBar />
@@ -21,7 +32,8 @@ const Home = ({ aapl }) => {
           </div>
           <div className="home-posts-container">
             <div className="posts-header">
-              <h1 style={{ marginLeft: "1rem", color: "white" }}>Posts</h1>
+              <h1>Posts</h1>
+              <BsPencilSquare onClick={handleModal} style={{margin: 'auto 0', cursor: 'pointer'}} size={30}/>
             </div>
             <Posts />
             <Posts />

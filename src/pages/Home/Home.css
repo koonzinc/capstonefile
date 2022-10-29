@@ -34,9 +34,13 @@
 }
 
 .posts-header {
-    width: 100%;
     background-color: #313342;
     border-radius: 8px;
     box-shadow: var(--color-default-shadow);
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: space-between;
+    padding: 0 1.5rem;
 }
 
