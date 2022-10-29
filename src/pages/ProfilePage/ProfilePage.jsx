@@ -1,26 +1,31 @@
 import React, { useEffect } from "react";
-import Posts from "../../components/Posts/Posts";
 import "./ProfilePage.css";
 import NavBar from "../../components/NavBar/NavBar";
 import ScrollingStocks from "../../components/ScrollingStocks/ScrollingStocks";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const ProfilePage = () => {
+
+
+const ProfilePage = ({ postData }) => {
   const navigate = useNavigate();
   useEffect(() => {
-    let token = localStorage.getItem('userToken')
-    
-    axios.get("https://3000-areandd-capstonebackend-assxchiq8kz.ws-us73.gitpod.io/validate-token" , {headers: {Authorization: `Bearer ${token}`}})
-    .then(res => console.log(res))
-    .catch(error => {
-      navigate('/login')
-    })
-  })
+    let token = localStorage.getItem("userToken");
+
+    axios
+      .get(
+        "https://3000-areandd-capstonebackend-6zmt4au06vs.ws-us73.gitpod.io/validate-token",
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then((res) => console.log(res))
+      .catch((error) => {
+        navigate("/login");
+      });
+  });
 
   return (
     <>
       <NavBar />
-    
+
       <div className="wrapper3">
         <div className="profileContainer">
           <div className="topProfileContainer">
@@ -64,9 +69,26 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="bottomPostContainer">
-            <Posts />
-            <Posts />
-            <Posts />
+            {postData.map((post, i) => (
+              <div className="posts-container">
+                <img
+                  id="post-profile-image"
+                  src="https://dvyvvujm9h0uq.cloudfront.net/com/articles/1515135672-shutterstock_284581649.jpg"
+                  alt=""
+                />
+                <div className="post-profile-info">
+                  <p id="profile-post-name">William Koonz</p>
+                  <p className="light-post" id="profile-post-username">
+                    @williamkoonz •&nbsp;
+                  </p>
+                  <p className="light-post">{postData[i].date_stamp}</p>
+                </div>
+                <div className="post-headline-info">
+                  <h3 class="post-headline">{postData[i].headline}</h3>
+                  <p className="post-headline">{postData[i].content}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

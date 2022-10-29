@@ -13,7 +13,7 @@ const Signup = () => {
 
     axios
       .post(
-        "https://3000-areandd-capstonebackend-assxchiq8kz.ws-us73.gitpod.io/signup",
+        "https://3000-areandd-capstonebackend-6zmt4au06vs.ws-us73.gitpod.io/signup",
         { email: email, password: password }
       )
       .then((res) => {

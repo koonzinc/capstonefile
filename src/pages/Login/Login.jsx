@@ -14,7 +14,7 @@ export default function Login() {
 
     axios
       .post(
-        "https://3000-areandd-capstonebackend-assxchiq8kz.ws-us73.gitpod.io/login",
+        "https://3000-areandd-capstonebackend-6zmt4au06vs.ws-us73.gitpod.io/login",
         {
           email: email,
           password: password,

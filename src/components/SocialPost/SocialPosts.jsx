@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SocialPosts.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-export default function SocialPosts() {
+export default function SocialPosts({ modal, handleModal }) {
   return (
     <div className="modal__background">
       <div className="modal">
         <div className="semi__container">
           <div className="exit">
-            <AiOutlineCloseCircle size={27} />
+            <AiOutlineCloseCircle
+              onClick={handleModal}
+              size={27}
+              style={{ cursor: "pointer" }}
+            />
           </div>
 
           <div className="photo__inputContainer">
