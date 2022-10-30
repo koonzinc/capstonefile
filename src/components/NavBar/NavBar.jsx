@@ -5,18 +5,20 @@ import { FaBars } from "react-icons/fa";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 
+
 function NavBar() {
 
   const handleLogout = () => {
     localStorage.removeItem('userToken')
   }
-  
+
 
   return (
     <div className="header">
       <Link to="/">
         <h1 className="header__logo">FMA</h1>
       </Link>
+
       <div className="header__search">
         <input
           className="header__searchInput"
@@ -37,8 +39,8 @@ function NavBar() {
           <BsPerson />
         </Link>
         <Link to="/" onClick={handleLogout}>
-          <AiFillCloseCircle/>
-          
+          <AiFillCloseCircle />
+
         </Link>
       </div>
     </div>

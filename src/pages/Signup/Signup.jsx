@@ -16,6 +16,7 @@ const Signup = () => {
         email: email,
         password: password,
       })
+      
       .then((res) => {
         console.log("API response: ", res);
       })
