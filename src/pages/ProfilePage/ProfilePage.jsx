@@ -3,14 +3,15 @@ import Posts from "../../components/Posts/Posts";
 import "./ProfilePage.css";
 import NavBar from "../../components/NavBar/NavBar";
 import ScrollingStocks from "../../components/ScrollingStocks/ScrollingStocks";
-import axios from "axios";
+
 import { useNavigate } from "react-router-dom";
+import axios from "../../axios";
 const ProfilePage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     let token = localStorage.getItem('userToken')
     
-    axios.get("https://3000-areandd-capstonebackend-assxchiq8kz.ws-us73.gitpod.io/validate-token" , {headers: {Authorization: `Bearer ${token}`}})
+    axios.get("validate-token" , {headers: {Authorization: `Bearer ${token}`}})
     .then(res => console.log(res))
     .catch(error => {
       navigate('/login')

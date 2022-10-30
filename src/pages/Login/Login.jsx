@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axios";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -14,7 +14,7 @@ export default function Login() {
 
     axios
       .post(
-        "https://3000-areandd-capstonebackend-assxchiq8kz.ws-us73.gitpod.io/login",
+        "login",
         {
           email: email,
           password: password,

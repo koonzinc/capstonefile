@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Signup.css";
 import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axios";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -12,10 +12,10 @@ const Signup = () => {
     e.preventDefault();
 
     axios
-      .post(
-        "https://3000-areandd-capstonebackend-assxchiq8kz.ws-us73.gitpod.io/signup",
-        { email: email, password: password }
-      )
+      .post("signup", {
+        email: email,
+        password: password,
+      })
       .then((res) => {
         console.log("API response: ", res);
       })
