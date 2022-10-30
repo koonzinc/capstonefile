@@ -21,11 +21,14 @@ export default function SocialPosts({ modal, handleModal }) {
               src="https://picsum.photos/30/30"
               alt=""
             />
-            <textarea
-              className="input"
-              placeholder="what's happening?"
-              rows="7"
-            ></textarea>
+            <div className="content__wrapper">
+              <input className="modal__headline" placeholder="headline" />
+              <textarea
+                className="textarea"
+                placeholder="what's happening?"
+                rows="7"
+              ></textarea>
+            </div>
           </div>
           <div className="button__container">
             <button className="send">Send</button>

@@ -28,6 +28,7 @@
   width: 100%;
 }
 
+
 .exit {
   margin-top: 5px;
   margin-left: 8px;
@@ -46,12 +47,29 @@
   position: row;
 }
 
+.content__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .profile__photo {
   height: 50px;
   width: 50px;
   border-radius: 50%;
 }
-.input {
+
+.modal__headline {
+  margin-left: 20px;
+  margin-bottom: 40px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 20px;
+  overflow: hidden;
+  resize: none;
+}
+
+.textarea {
   margin-left: 20px;
   border: none;
   outline: none;
@@ -59,6 +77,8 @@
   font-size: 20px;
   overflow: hidden;
   resize: none;
+  display: flex;
+  position: row;
 }
 
 .button__container {
