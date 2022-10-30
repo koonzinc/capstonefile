@@ -1,8 +1,34 @@
 import React, { useState } from "react";
 import "./SocialPosts.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import axios from "../../axios";
 
 export default function SocialPosts({ modal, handleModal }) {
+  const [headlineData, setHeadlineData] = useState({});
+  const [content, setContent] = useState({});
+  const [date, setDate] = useState("01-01-01");
+
+  const createPost = (e) => {
+    e.preventDefault();
+    axios
+      .post("posts", {
+        headline: headlineData,
+        content: content,
+        date_stamp: date,
+      })
+
+      .then((res) => {
+        console.log("API response: ", res);
+      })
+      .catch((err) => {
+        console.log("Error: ", err);
+      });
+  };
+
+  console.log(headlineData);
+  console.log(content);
+  console.log(date);
+
   return (
     <div className="modal__background">
       <div className="modal">
@@ -22,8 +48,13 @@ export default function SocialPosts({ modal, handleModal }) {
               alt=""
             />
             <div className="content__wrapper">
-              <input className="modal__headline" placeholder="headline" />
+              <input
+                onChange={(e) => setHeadlineData(e.target.value)}
+                className="modal__headline"
+                placeholder="headline"
+              />
               <textarea
+                onChange={(e) => setContent(e.target.value)}
                 className="textarea"
                 placeholder="what's happening?"
                 rows="7"
@@ -31,7 +62,9 @@ export default function SocialPosts({ modal, handleModal }) {
             </div>
           </div>
           <div className="button__container">
-            <button className="send">Send</button>
+            <button onClick={createPost} type="submit" className="send">
+              Send
+            </button>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import IndividualStocks from './pages/IndividualStocks/IndividualStocks';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Home from './pages/Home/Home';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from './axios';
 import Api from './API/Api';
 import Login from './pages/Login/Login';
 
@@ -31,7 +31,7 @@ function App() {
 
     axios
       .get(
-        "https://3000-areandd-capstonebackend-6zmt4au06vs.ws-us73.gitpod.io/posts",
+        "posts",
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => {
