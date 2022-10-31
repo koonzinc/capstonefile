@@ -9,15 +9,17 @@ export default function SocialPosts({ modal, handleModal }) {
   const [date, setDate] = useState("01-01-01");
   const [user, setUser] = useState(1);
 
+  let token = localStorage.getItem("userToken");
   const sendPost = async (e) => {
     e.preventDefault();
 
-    await axios.post("posts", {
+ 
+
+    await axios.post("posts", { headers: { Authorization: `Bearer ${token}` } }, {
       headline: headlineData,
       content: content,
       date_stamp: date
     });
-    setHeadlineData("");
   };
 
 

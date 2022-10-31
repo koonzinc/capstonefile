@@ -4,7 +4,7 @@
     height: 5rem;
     overflow-x: hidden;
     margin: 0 auto 20px;
-    margin-top: 90px;
+    margin-top: 118px;
   }
 
   .scroll__element {
@@ -12,6 +12,10 @@
     margin-top: 18px;
     display: flex;
     flex-direction: row;
+  }
+
+  .scrolling__links {
+    text-decoration: none;
   }
   
   /* .scroll__element {
@@ -30,7 +34,7 @@
   } */
   .tablet {
     margin-right: 184px;
-    background-color: #313342;
+    background-color: #2752FF;
     box-shadow: var(--color-default-shadow);
     border-radius: 8px;
     padding: 10px 18px;
