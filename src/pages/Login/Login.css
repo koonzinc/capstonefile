@@ -1,15 +1,15 @@
-
-
-.p3 {
-    font-size: 14px;
-    position: relative;
-    width: 380px;
-    line-height: 1.5em;
-    color: #B6BCCB;
-    margin-bottom: 2rem;
+.container {
+    background-color: white;
+    box-shadow: var(--color-default-shadow);
+    width: 400px;
+    height: 500px;
 }
-#or {
-    color: white;
+.wrapper {
+    background-color: white;
+}
+.brand {
+    color: #2752FF;
+    margin-bottom: -30px;
 }
 .loginForm {
     display: flex;
@@ -21,19 +21,23 @@
     flex-direction: column;
 }
 .login-inputs {
-    background-color: #424354;
+    background-color: white;
+    box-shadow: var(--color-default-shadow);
     border: none;
     color: #707584;
     border-radius: 14px;
     padding: 20px 20px;
     margin-bottom: 1rem;
     font-size: 14px;
+    outline: none;
 }
 .login-inputs:focus {
-    color: white;
+    color: black;
 }
 .login-button {
-    background-color: #535967;
+    background-color: white;
+    box-shadow: var(--color-default-shadow);
+    cursor: pointer;
     border: none;
     padding: 14px 0px;
     border-radius: 20px;

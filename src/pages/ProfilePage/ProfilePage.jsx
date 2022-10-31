@@ -85,7 +85,7 @@ const ProfilePage = ({ postData }) => {
                 </div>
                 <div className="post-headline-info">
                   <h3 class="post-headline">{postData[i].headline}</h3>
-                  <p className="post-headline">{postData[i].content}</p>
+                  <p style={{overflow: 'scroll'}} className="post-headline">{postData[i].content}</p>
                 </div>
               </div>
             ))}

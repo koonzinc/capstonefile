@@ -3,27 +3,26 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #242631;
+    background-color: white;
 }
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 640px;
-    height: 740px;
-    background-color: #313342;
+    background-color: white;
+    box-shadow: var(--color-default-shadow);
+    width: 400px;
+    height: 500px;
     border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,.2);
+   
 }
 .content {
     padding: 0 48px;
     text-align: center;
 }
 .brand {
-    position: relative;
-    bottom: 3rem;
-    background-color: transparent;
-    color: white;
+    color: #2752FF;
+    margin-bottom: 20px;
 }
 .logo {
     color: #6CE4E5;
@@ -61,4 +60,7 @@
 }
 a {
     color: #A185ED;
+}
+.signup__inputs {
+    width: 200px;
 }

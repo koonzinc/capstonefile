@@ -37,14 +37,8 @@ export default function Login() {
         <div className="container">
           <div className="content">
             <h1 className="brand ">
-              <span className="logo">CS</span> Commonstock
+              goodstocks
             </h1>
-            <p className="p3">
-              By continuing, you agree to our
-              <br />
-              <a>Terms of Service</a>, <a>Copyright Policy</a> and{" "}
-              <a>Privacy Policy</a>
-            </p>
             <div className="loginForm">
               <form className="login-form" action="" onSubmit={handleSubmit}>
                 <input
@@ -65,7 +59,7 @@ export default function Login() {
               </form>
               <p style={{ color: "#B6BDCB" }}>
                 Don't have an account?
-                <Link to="/signup" replace>
+                <Link style={{color: '#2752FF', textDecoration: 'none'}} to="/signup" replace>
                   Sign up.
                 </Link>
               </p>
