@@ -9,8 +9,9 @@ import SocialPosts from "../../components/SocialPost/SocialPosts";
 import { BsPencilSquare } from "react-icons/bs";
 import "../../components/Posts/Posts.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
-const Home = ({ aapl, postData }) => {
+const Home = ({ aapl, postData, watchlistData }) => {
   const [modal, setModal] = useState(false);
 
   const handleModal = () => {
@@ -26,7 +27,16 @@ const Home = ({ aapl, postData }) => {
         <IndexContainer />
         <div className="data-and-post-container">
           <div className="data-tables">
-            <DataTables />
+            {/* watchlist data table */}
+            <div className="data-table-container">
+              {watchlistData.map((stock, i) => (
+                <Link to={`/individual-stocks/${watchlistData[i].stock}`} replace>
+                  <div className="pill__wrapper">
+                    <span>{watchlistData[i].stock}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
           <div className="home-posts-container">
             <div className="posts-header">
