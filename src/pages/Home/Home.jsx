@@ -30,9 +30,10 @@ const Home = ({ aapl, postData, watchlistData }) => {
             {/* watchlist data table */}
             <div className="data-table-container">
               {watchlistData.map((stock, i) => (
-                <Link to={`/individual-stocks/${watchlistData[i].stock}`} replace>
+                <Link style={{textDecoration: 'none'}} to={`/individual-stocks/${watchlistData[i].stock}`} replace>
                   <div className="pill__wrapper">
-                    <span>{watchlistData[i].stock}</span>
+                    <span id="pill__tickers">${watchlistData[i].stock}</span>
+                    <span>Learn more</span>
                   </div>
                 </Link>
               ))}
@@ -63,7 +64,7 @@ const Home = ({ aapl, postData, watchlistData }) => {
                 </div>
                 <div className="post-headline-info">
                   <h3 class="post-headline">{postData[i].headline}</h3>
-                  <p className="post-headline">{postData[i].content}</p>
+                  <p style={{overflow: 'scroll'}} className="post-headline">{postData[i].content}</p>
                 </div>
               </div>
             ))}

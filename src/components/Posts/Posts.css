@@ -1,7 +1,7 @@
 .posts-container {
     height: auto;
-    background-color: #313342;
-    color: white;
+    background-color: white;
+    color: black;
     border-radius: 8px;
     margin-top: 16px;
     box-shadow: var(--color-default-shadow);

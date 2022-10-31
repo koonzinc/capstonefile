@@ -1,5 +1,5 @@
 :root {
-    background-color: #242631;
+    background-color: white;
 }
 .home-page-container {
     width: 70%;
@@ -34,12 +34,12 @@
 }
 
 .posts-header {
-    background-color: #313342;
+    background-color: white;
     border-radius: 8px;
     box-shadow: var(--color-default-shadow);
     display: flex;
     flex-direction: row;
-    color: white;
+    color: black;
     justify-content: space-between;
     padding: 0 1.5rem;
 }
