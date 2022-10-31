@@ -9,27 +9,17 @@ export default function SocialPosts({ modal, handleModal }) {
   const [date, setDate] = useState("01-01-01");
   const [user, setUser] = useState(1);
 
-  const createPost = (e) => {
+  const sendPost = async (e) => {
     e.preventDefault();
-    axios
-      .post("posts", {
-        user_id: user,
-        headline: headlineData,
-        content: content,
-        date_stamp: date,
-      },)
 
-      .then((res) => {
-        console.log("API response: ", res);
-      })
-      .catch((err) => {
-        console.log("Error: ", err);
-      });
+    await axios.post("posts", {
+      headline: headlineData,
+      content: content,
+      date_stamp: date
+    });
+    setHeadlineData("");
   };
 
-  console.log(headlineData);
-  console.log(content);
-  console.log(date);
 
   return (
     <div className="modal__background">
@@ -50,11 +40,12 @@ export default function SocialPosts({ modal, handleModal }) {
               alt=""
             />
             <div className="content__wrapper">
-              <form onSubmit={createPost}>
+              <form onSubmit={sendPost}>
                 <input
                   onChange={(e) => setHeadlineData(e.target.value)}
                   className="modal__headline"
                   placeholder="headline"
+                  value={headlineData}
                 />
 
                 {/* <textarea
