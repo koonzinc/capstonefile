@@ -7,21 +7,24 @@ export default function SocialPosts({ modal, handleModal }) {
   const [headlineData, setHeadlineData] = useState("");
   const [content, setContent] = useState("fhjfbhdsujbfsjhd");
   const [date, setDate] = useState("01-01-01");
-  const [user, setUser] = useState(1);
+  const [userId, setUserId] = useState(1);
 
   let token = localStorage.getItem("userToken");
   const sendPost = async (e) => {
     e.preventDefault();
 
- 
-
-    await axios.post("posts", { headers: { Authorization: `Bearer ${token}` } }, {
-      headline: headlineData,
-      content: content,
-      date_stamp: date
-    });
+    const holder = await axios.post(
+      "posts",
+      {
+        user_id: userId,
+        headline: headlineData,
+        content: content,
+        date_stamp: date,
+      },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    console.log("holder",holder);
   };
-
 
   return (
     <div className="modal__background">
@@ -56,13 +59,13 @@ export default function SocialPosts({ modal, handleModal }) {
                 placeholder="what's happening?"
                 rows="7"
               ></textarea> */}
+                <div className="button__container">
+                  <button type="submit" className="send">
+                    Send
+                  </button>
+                </div>
               </form>
             </div>
-          </div>
-          <div className="button__container">
-            <button type="submit" className="send">
-              Send
-            </button>
           </div>
         </div>
       </div>
