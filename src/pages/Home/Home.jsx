@@ -55,10 +55,26 @@ const Home = ({ aapl, postData, watchlistData }) => {
             ) : (
               <div className="data-table-container">
                 <div id="watchlist__notSignedIn">
-                  <h2 style={{marginBottom: '-0.75rem'}}>Sign up or Sign in</h2>
+                  <h2 style={{ marginBottom: "-0.75rem" }}>
+                    Sign up or Sign in
+                  </h2>
                   <p>to create a watchlist</p>
-                  <button style={{marginBottom: '0.5rem'}} className="watchlist__buttons">Sign up</button>
-                  <button style={{backgroundColor: '#2752FF', color: 'white'}} className="watchlist__buttons">Sign in</button>
+                  <Link to='/login' replace>
+                    <button
+                      style={{ marginBottom: "0.5rem" }}
+                      className="watchlist__buttons"
+                    >
+                      Sign in
+                    </button>
+                  </Link>
+                  <Link to='/signup' replace>
+                    <button
+                      style={{ backgroundColor: "#2752FF", color: "white" }}
+                      className="watchlist__buttons"
+                    >
+                      Sign up
+                    </button>
+                  </Link>
                 </div>
               </div>
             )}
@@ -72,28 +88,68 @@ const Home = ({ aapl, postData, watchlistData }) => {
                 size={30}
               />
             </div>
-            {postData.map((post, i) => (
-              <div className="posts-container">
-                <img
-                  id="post-profile-image"
-                  src="https://dvyvvujm9h0uq.cloudfront.net/com/articles/1515135672-shutterstock_284581649.jpg"
-                  alt=""
-                />
-                <div className="post-profile-info">
-                  <p id="profile-post-name">William Koonz</p>
-                  <p className="light-post" id="profile-post-username">
-                    @williamkoonz •&nbsp;
-                  </p>
-                  <p className="light-post">{postData[i].date_stamp}</p>
-                </div>
-                <div className="post-headline-info">
-                  <h3 class="post-headline">{postData[i].headline}</h3>
-                  <p style={{ overflow: "scroll" }} className="post-headline">
-                    {postData[i].content}
-                  </p>
+            {signedIn ? (
+              <div>
+                {postData.map((post, i) => (
+                  <div className="posts-container">
+                    <img
+                      id="post-profile-image"
+                      src="https://dvyvvujm9h0uq.cloudfront.net/com/articles/1515135672-shutterstock_284581649.jpg"
+                      alt=""
+                    />
+                    <div className="post-profile-info">
+                      <p id="profile-post-name">William Koonz</p>
+                      <p className="light-post" id="profile-post-username">
+                        @williamkoonz •&nbsp;
+                      </p>
+                      <p className="light-post">{postData[i].date_stamp}</p>
+                    </div>
+                    <div className="post-headline-info">
+                      <h3 class="post-headline">{postData[i].headline}</h3>
+                      <p
+                        style={{ overflow: "scroll" }}
+                        className="post-headline"
+                      >
+                        {postData[i].content}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div id="posts__notSignedIn">
+                <div className="inner__posts">
+                  <h2
+                    style={{ marginBottom: "-0.75rem", marginTop: "-0.3rem" }}
+                  >
+                    Sign up or Sign in
+                  </h2>
+                  <p>to create a post</p>
+                  <div className="post__buttonContainer">
+                    <Link to="/login">
+                      <button
+                        style={{ marginRight: "0.25rem" }}
+                        className="post__buttonsNotSignedIn"
+                      >
+                        Sign in
+                      </button>
+                    </Link>
+                    <Link to='signup'>
+                      <button
+                        style={{
+                          marginLeft: "0.25rem",
+                          backgroundColor: "#2752FF",
+                          color: "white",
+                        }}
+                        className="post__buttonsNotSignedIn"
+                      >
+                        Sign up
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>

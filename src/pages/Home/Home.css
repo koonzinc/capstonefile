@@ -25,7 +25,7 @@
 }
 .home-posts-container {
   width: 65.5%;
-  height: 100px;
+  height: screen;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -67,6 +67,48 @@
   cursor: pointer;
 }
 .watchlist__buttons:hover {
-    box-shadow: var(--color-default-shadow);
-    transition-duration: 3ms ;
+  box-shadow: var(--color-default-shadow);
+  transition-duration: 3ms;
+}
+
+#posts__notSignedIn {
+  height: 287px !important;
+
+  color: black;
+  border-radius: 8px;
+  margin-top: 16px;
+  box-shadow: var(--color-default-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner__posts {
+  background-color: #2752ff7e;
+  width: 95%;
+  height: 85%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+.post__buttonContainer {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.post__buttonsNotSignedIn {
+  color: #2752ff;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+.post__buttonsNotSignedIn:hover {
+  box-shadow: var(--color-default-shadow);
+  transition-duration: 3ms;
 }
