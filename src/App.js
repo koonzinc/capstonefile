@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import axios from "./axios";
 import Api from "./API/Api";
 import Login from "./pages/Login/Login";
+import Reset from "./pages/Reset";
 
 function App() {
   const [aapl, setAapl] = useState("");
@@ -58,6 +59,7 @@ function App() {
         element={<ProfilePage postData={postData} />}
       />
       <Route path="/signup" element={<Signup />} />
+      <Route path='/reset-password' element={<Reset/>}/> 
     </Routes>
   );
 }
