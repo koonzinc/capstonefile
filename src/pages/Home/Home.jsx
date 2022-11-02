@@ -13,6 +13,14 @@ import { Link } from "react-router-dom";
 
 const Home = ({ aapl, postData, watchlistData }) => {
   const [modal, setModal] = useState(false);
+  const [signedIn, setSignedIn] = useState(false);
+
+  useEffect(() => {
+    let token = localStorage.getItem("userToken");
+    if (token) {
+      setSignedIn(!signedIn);
+    }
+  }, []);
 
   const handleModal = () => {
     setModal(!modal);
@@ -28,16 +36,32 @@ const Home = ({ aapl, postData, watchlistData }) => {
         <div className="data-and-post-container">
           <div className="data-tables">
             {/* watchlist data table */}
-            <div className="data-table-container">
-              {watchlistData.map((stock, i) => (
-                <Link style={{textDecoration: 'none'}} to={`/individual-stocks/${watchlistData[i].stock}`} replace>
-                  <div className="pill__wrapper">
-                    <span id="pill__tickers">${watchlistData[i].stock}</span>
-                    <span>Learn more</span>
-                  </div>
-                </Link>
-              ))}
-            </div>
+
+            {signedIn ? (
+              <div className="data-table-container">
+                {watchlistData.map((stock, i) => (
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    to={`/individual-stocks/${watchlistData[i].stock}`}
+                    replace
+                  >
+                    <div className="pill__wrapper">
+                      <span id="pill__tickers">${watchlistData[i].stock}</span>
+                      <span>Learn more</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="data-table-container">
+                <div id="watchlist__notSignedIn">
+                  <h2 style={{marginBottom: '-0.75rem'}}>Sign up or Sign in</h2>
+                  <p>to create a watchlist</p>
+                  <button style={{marginBottom: '0.5rem'}} className="watchlist__buttons">Sign up</button>
+                  <button style={{backgroundColor: '#2752FF', color: 'white'}} className="watchlist__buttons">Sign in</button>
+                </div>
+              </div>
+            )}
           </div>
           <div className="home-posts-container">
             <div className="posts-header">
@@ -64,7 +88,9 @@ const Home = ({ aapl, postData, watchlistData }) => {
                 </div>
                 <div className="post-headline-info">
                   <h3 class="post-headline">{postData[i].headline}</h3>
-                  <p style={{overflow: 'scroll'}} className="post-headline">{postData[i].content}</p>
+                  <p style={{ overflow: "scroll" }} className="post-headline">
+                    {postData[i].content}
+                  </p>
                 </div>
               </div>
             ))}

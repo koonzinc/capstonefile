@@ -1,46 +1,72 @@
 :root {
-    background-color: white;
+  background-color: white;
 }
 .home-page-container {
-    width: 70%;
-    margin: 0 auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .data-and-post-container {
-    width: 96.6%;
-    margin: 32px auto;
-    height: auto;
-    display: flex;
-    flex-direction: row;
+  width: 96.6%;
+  margin: 32px auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
 }
 .data-tables {
-    width: 34.5%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+  width: 34.5%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 .home-posts-container {
-    width: 65.5%;
-    height: 100px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    
+  width: 65.5%;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .posts-header {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: var(--color-default-shadow);
-    display: flex;
-    flex-direction: row;
-    color: black;
-    justify-content: space-between;
-    padding: 0 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--color-default-shadow);
+  display: flex;
+  flex-direction: row;
+  color: black;
+  justify-content: space-between;
+  padding: 0 1.5rem;
 }
 
+#watchlist__notSignedIn {
+  background-color: #2752ff7e;
+  width: 90%;
+  height: 90%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.watchlist__buttons {
+  color: #2752ff;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+.watchlist__buttons:hover {
+    box-shadow: var(--color-default-shadow);
+    transition-duration: 3ms ;
+}
