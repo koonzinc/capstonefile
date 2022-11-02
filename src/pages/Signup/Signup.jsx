@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "../../axios";
 import "./Signup.css";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ const Signup = () => {
 
       .then((res) => {
         console.log("API response: ", res);
+        navigate("/login");
       })
       .catch((err) => {
         console.log("Error: ", err);
