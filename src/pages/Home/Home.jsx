@@ -45,9 +45,9 @@ const Home = ({ aapl, postData, watchlistData }) => {
                     to={`/individual-stocks/${watchlistData[i].stock}`}
                     replace
                   >
-                    <div className="pill__wrapper">
+                    <div style={{alignItems: 'center'}} className="pill__wrapper">
                       <span id="pill__tickers">${watchlistData[i].stock}</span>
-                      <span>Learn more</span>
+                      <span><AiOutlineCloseCircle size={35}/></span>
                     </div>
                   </Link>
                 ))}

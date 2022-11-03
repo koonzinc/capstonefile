@@ -5,17 +5,13 @@ import ScrollingStocks from "../../components/ScrollingStocks/ScrollingStocks";
 import axios from "../../axios";
 import { useNavigate } from "react-router-dom";
 
-
 const ProfilePage = ({ postData }) => {
   const navigate = useNavigate();
   useEffect(() => {
     let token = localStorage.getItem("userToken");
 
     axios
-      .get(
-        "validate-token",
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
+      .get("validate-token", { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => console.log(res))
       .catch((error) => {
         navigate("/login");
@@ -85,7 +81,9 @@ const ProfilePage = ({ postData }) => {
                 </div>
                 <div className="post-headline-info">
                   <h3 class="post-headline">{postData[i].headline}</h3>
-                  <p style={{overflow: 'scroll'}} className="post-headline">{postData[i].content}</p>
+                  <p style={{ overflow: "scroll" }} className="post-headline">
+                    {postData[i].content}
+                  </p>
                 </div>
               </div>
             ))}
