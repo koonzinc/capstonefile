@@ -13,12 +13,22 @@ function App() {
   const [aapl, setAapl] = useState("");
   const [postData, setPostData] = useState([]);
   const [watchlistData, setWatchlistData] = useState([]);
+  const [userId, setUserId] = useState(-1);
 
   const aaplUrl =
     "https://finnhub.io/api/v1/search?q=AAPL&token=cd9g9uaad3i97v8iuvfgcd9g9uaad3i97v8iuvg0";
 
   useEffect(() => {
     getAapl();
+
+    let token = localStorage.getItem("userToken");
+
+    axios
+      .get("validate-token", { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => {
+        console.log(res.data.loggedInAs);
+        setUserId(res.data.loggedInAs);
+      });
   }, []);
 
   const getAapl = async () => {
@@ -48,18 +58,23 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home aapl={aapl} postData={postData} watchlistData={watchlistData} />} />
+      <Route
+        path="/"
+        element={
+          <Home userId={userId} aapl={aapl} postData={postData} watchlistData={watchlistData} />
+        }
+      />
       <Route path="/login" element={<Login />} />
       <Route
         path="/individual-stocks/:stockId"
-        element={<IndividualStocks aapl={aapl} />}
+        element={<IndividualStocks aapl={aapl} userId={userId} />}
       />
       <Route
         path="/profile-page"
         element={<ProfilePage postData={postData} />}
       />
       <Route path="/signup" element={<Signup />} />
-      <Route path='/reset-password' element={<Reset/>}/> 
+      <Route path="/reset-password" element={<Reset />} />
     </Routes>
   );
 }

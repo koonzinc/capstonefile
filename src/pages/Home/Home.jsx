@@ -10,21 +10,41 @@ import { BsPencilSquare } from "react-icons/bs";
 import "../../components/Posts/Posts.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import axios from "../../axios.js";
 
-const Home = ({ aapl, postData, watchlistData }) => {
+const Home = ({ aapl, postData, watchlistData, userId }) => {
   const [modal, setModal] = useState(false);
   const [signedIn, setSignedIn] = useState(false);
-
+  let token = localStorage.getItem("userToken");
   useEffect(() => {
-    let token = localStorage.getItem("userToken");
     if (token) {
       setSignedIn(!signedIn);
     }
-  }, []);
+  }, [token]);
 
   const handleModal = () => {
     setModal(!modal);
   };
+
+  const handleDelete = (stock) => {
+    console.log(stock);
+    console.log(token);
+    console.log(userId);
+    axios
+      .delete(
+        "watchlist-delete",
+
+        { headers: { Authorization: `Bearer ${token}` } },
+        {
+          user_id: userId,
+          stock: stock,
+        }
+      )
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  // { headers: { Authorization: `Bearer ${token}` } }
 
   return (
     <div>
@@ -40,16 +60,24 @@ const Home = ({ aapl, postData, watchlistData }) => {
             {signedIn ? (
               <div className="data-table-container">
                 {watchlistData.map((stock, i) => (
-                  <Link
-                    style={{ textDecoration: "none" }}
-                    to={`/individual-stocks/${watchlistData[i].stock}`}
-                    replace
+                  <div
+                    style={{ alignItems: "center" }}
+                    className="pill__wrapper"
                   >
-                    <div style={{alignItems: 'center'}} className="pill__wrapper">
-                      <span id="pill__tickers">${watchlistData[i].stock}</span>
-                      <span><AiOutlineCloseCircle size={30}/></span>
-                    </div>
-                  </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to={`/individual-stocks/${watchlistData[i].stock}`}
+                      replace
+                    >
+                      <span id="pill__tickers">${stock.stock}</span>
+                    </Link>
+                    <span>
+                      <AiOutlineCloseCircle
+                        onClick={() => handleDelete(stock.stock)}
+                        size={30}
+                      />
+                    </span>
+                  </div>
                 ))}
               </div>
             ) : (
@@ -59,7 +87,7 @@ const Home = ({ aapl, postData, watchlistData }) => {
                     Sign up or Sign in
                   </h2>
                   <p>to create a watchlist</p>
-                  <Link to='/login' replace>
+                  <Link to="/login" replace>
                     <button
                       style={{ marginBottom: "0.5rem" }}
                       className="watchlist__buttons"
@@ -67,7 +95,7 @@ const Home = ({ aapl, postData, watchlistData }) => {
                       Sign in
                     </button>
                   </Link>
-                  <Link to='/signup' replace>
+                  <Link to="/signup" replace>
                     <button
                       style={{ backgroundColor: "#2752FF", color: "white" }}
                       className="watchlist__buttons"
@@ -134,7 +162,7 @@ const Home = ({ aapl, postData, watchlistData }) => {
                         Sign in
                       </button>
                     </Link>
-                    <Link to='signup'>
+                    <Link to="signup">
                       <button
                         style={{
                           marginLeft: "0.25rem",
