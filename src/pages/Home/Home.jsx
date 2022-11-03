@@ -47,7 +47,7 @@ const Home = ({ aapl, postData, watchlistData }) => {
                   >
                     <div style={{alignItems: 'center'}} className="pill__wrapper">
                       <span id="pill__tickers">${watchlistData[i].stock}</span>
-                      <span><AiOutlineCloseCircle size={35}/></span>
+                      <span><AiOutlineCloseCircle size={30}/></span>
                     </div>
                   </Link>
                 ))}
