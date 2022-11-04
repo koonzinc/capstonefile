@@ -70,7 +70,7 @@ function App() {
         element={<IndividualStocks aapl={aapl} userId={userId} />}
       />
       <Route
-        path="/profile-page"
+        path="/profile-page/:userName"
         element={<ProfilePage postData={postData} />}
       />
       <Route path="/signup" element={<Signup />} />

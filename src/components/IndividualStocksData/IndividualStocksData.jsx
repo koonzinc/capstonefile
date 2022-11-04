@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from "react";
-import axios from "axios";
+import axios from "../../axios";
 import { useParams } from "react-router-dom";
 
 const IndividualStocksData = ({ aapl }) => {
@@ -43,12 +43,16 @@ const IndividualStocksData = ({ aapl }) => {
   console.log(price);
   console.log(close);
 
+  const addToWatchlist = () => {
+    axios.post("watchlist-add", )
+  }
+
   return (
     <>
       <div className="header-container">
         <h1 className="stock-ticker">{stockId}</h1>
         <div className="btn-container">
-          <button className="watch-btn">Watch</button>
+          <button onClick={addToWatchlist} className="watch-btn">Watch</button>
         </div>
       </div>
       <div className="container2">This is a chart for a stock</div>
