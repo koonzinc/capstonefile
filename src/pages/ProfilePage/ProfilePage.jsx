@@ -1,23 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProfilePage.css";
 import NavBar from "../../components/NavBar/NavBar";
 import ScrollingStocks from "../../components/ScrollingStocks/ScrollingStocks";
 import axios from "../../axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ProfilePage = ({ postData }) => {
   const navigate = useNavigate();
+  const { userName } = useParams();
+  const [userInfo, setUserInfo] = useState({});
   useEffect(() => {
-    let token = localStorage.getItem("userToken");
+    // let token = localStorage.getItem("userToken");
+
+    // axios
+    //   .get("validate-token", { headers: { Authorization: `Bearer ${token}` } })
+    //   .then((res) => console.log(res))
+    //   .catch((error) => {
+    //     navigate("/login");
+    //   });
 
     axios
-      .get("validate-token", { headers: { Authorization: `Bearer ${token}` } })
-      .then((res) => console.log(res))
-      .catch((error) => {
-        navigate("/login");
-      });
-  });
-
+      .get("user-profile?key=" + userName, {
+        headers: { "Access-Control-Allow-Origin": "*" },
+      })
+      .then((res) => setUserInfo(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(userInfo);
   return (
     <>
       <NavBar />
@@ -28,32 +37,31 @@ const ProfilePage = ({ postData }) => {
             <div className="photoContainer">
               <img
                 className="image banner"
-                src="https://media.cntraveler.com/photos/56cf6b7569d8fae9411b181a/master/pass/Adriano_Neves_Portugual_Shortlist_Open_Travel_2016.jpg"
+                src={userInfo && userInfo.banner}
                 width={500}
                 height={200}
                 alt=""
               />
               <img
                 className="image profile"
-                src="https://dvyvvujm9h0uq.cloudfront.net/com/articles/1515135672-shutterstock_284581649.jpg"
+                src={userInfo && userInfo.profile_photo}
                 width={200}
                 height={200}
                 alt=""
               />
             </div>
             <div className="infoContainer">
-              <h2 id="name">William Koonz</h2>
-              <h3 id="username">@williamkoonz</h3>
+              <h2 id="name">{userInfo && userInfo.name}</h2>
+              <h3 id="username">@{userInfo && userInfo.user_name}</h3>
               <p id="bio">
-                This is a banner Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Nesciunt, impedit?
+                {userInfo.bio}
               </p>
               <div className="followContainer">
                 <p className="follow" id="following">
-                  <span className="followCount">123</span> Following
+                  <span className="followCount">{userInfo && userInfo.following}</span> Following
                 </p>
                 <p className="follow" id="followers">
-                  <span className="followCount">94</span> Followers
+                  <span className="followCount">{userInfo && userInfo.followers}</span> Followers
                 </p>
               </div>
               <button id="edit-btn">Edit Profile</button>
