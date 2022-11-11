@@ -11,15 +11,22 @@ import { Link } from "react-router-dom";
 import LoginIcon from "@mui/icons-material/Login";
 import { IconButton } from "@mui/material";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import axios from '../../axios';
 
 function NavBar() {
   const [status, setStatus] = useState(false);
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     let token = localStorage.getItem("userToken");
     if (token) {
       setStatus(true);
     }
+
+    axios
+      .get("/validate-token", { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => setUsername(res.data.user_name))
+      .catch((err) => console.log(err));
   }, []);
 
   const handleLogout = () => {
@@ -36,22 +43,26 @@ function NavBar() {
 
       <div className="navbar__right">
         {!status ? (
-        <>
-          <Link className="navbar__buttons" to="/login">
-            <p style={{ marginRight: "1rem" }}>Sign in</p>
-          </Link>
-          <Link className="navbar__buttons background" to="/signup" replace>
-            <p>Sign up</p>
-          </Link>
+          <>
+            <Link className="navbar__buttons" to="/login">
+              <p style={{ marginRight: "1rem" }}>Sign in</p>
+            </Link>
+            <Link className="navbar__buttons background" to="/signup" replace>
+              <p>Sign up</p>
+            </Link>
           </>
         ) : null}
 
         {status ? (
           <>
-            <Link className="navbar__buttons" to="/profile-page" replace>
-              <p style={{marginRight: '1rem'}}>Profile</p>
+            <Link className="navbar__buttons" to={`/profile-page/${username}`} replace>
+              <p style={{ marginRight: "1rem" }}>Profile</p>
             </Link>
-            <Link className="navbar__buttons background" to="/" onClick={handleLogout}>
+            <Link
+              className="navbar__buttons background"
+              to="/"
+              onClick={handleLogout}
+            >
               <p style={{ paddingTop: "2px" }}>Sign out</p>
             </Link>
           </>

@@ -23,7 +23,7 @@ export default function Login() {
       .then((res) => {
         console.log("API response: ", res);
         localStorage.setItem("userToken", res.data);
-        navigate("/profile-page/areandd");
+        navigate("/");
       })
       .catch((err) => {
         console.log("Error: ", err);
