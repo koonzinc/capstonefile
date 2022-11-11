@@ -7,6 +7,7 @@ import "./Signup.css";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -16,6 +17,7 @@ const Signup = () => {
       .post("signup", {
         email: email,
         password: password,
+        user_name: username
       })
 
       .then((res) => {
@@ -44,6 +46,12 @@ const Signup = () => {
                 />
                 <input
                   className="login-inputs signup__inputs"
+                  type="text"
+                  placeholder="Username"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <input
+                  className="login-inputs signup__inputs"
                   type="password"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
@@ -52,7 +60,6 @@ const Signup = () => {
                   Sign up
                 </button>
               </form>
-              
             </div>
           </div>
         </div>
